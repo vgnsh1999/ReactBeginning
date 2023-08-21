@@ -34,8 +34,9 @@ const App = () => {
     },
   ];
   return (
-    <Card className="expense">
-      <h2>Lets get started!</h2>
+    <div>
+<h2>Lets get started!</h2>
+    <Card className="expenses">
       <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
@@ -61,6 +62,7 @@ const App = () => {
         location={expenses[3].location}
       />
     </Card>
+    </div>
   );
 }
 
