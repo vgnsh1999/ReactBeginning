@@ -3,6 +3,7 @@ import ExpenseItem from "./ExpenseItem";
 import ExpenseFilter from "./ExpenseFilter";
 import Card from "../UI/Card";
 import "./Expenses.css";
+import ExpensesList from "./ExpensesList";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2023");
@@ -16,21 +17,19 @@ const Expenses = (props) => {
   });
 
 
+  // let expenseContentOnlyOne = <p>Only single Expense here. Please add more...</p>
+
+  
+
+
   return (
     <Card className="expenses">
       <ExpenseFilter
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {filteredExpenses.map((expense) => (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-          location={expense.location}
-        />
-      ))}
+      <ExpensesList items={filteredExpenses} />
+      {/* {filteredExpenses.length === 1 ? expenseContentOnlyOne:<ExpensesList items={filteredExpenses} />}       */}
     </Card>
   );
 };
